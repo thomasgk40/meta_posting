@@ -1,0 +1,70 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:page_id",
+ "creation": "2024-12-19 12:09:43.648188",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "page_id",
+  "page_name",
+  "access_token",
+  "disabled"
+ ],
+ "fields": [
+  {
+   "fieldname": "page_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Page ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "page_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Page Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "access_token",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Access Token",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-12-19 12:26:20.461463",
+ "modified_by": "Administrator",
+ "module": "Social Media Posting",
+ "name": "Facebook Page",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "page_name"
+}

@@ -1,0 +1,113 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-12-17 17:52:49.291410",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "platform",
+  "facebook_page",
+  "page_name",
+  "content",
+  "image",
+  "video",
+  "scheduled_time",
+  "status",
+  "response_message",
+  "posted_by",
+  "post_now"
+ ],
+ "fields": [
+  {
+   "fieldname": "platform",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Platform",
+   "options": "Facebook\nInstagram",
+   "reqd": 1
+  },
+  {
+   "fieldname": "content",
+   "fieldtype": "Small Text",
+   "label": "Content"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
+  },
+  {
+   "fieldname": "video",
+   "fieldtype": "Attach",
+   "label": "Video",
+   "options": "Video"
+  },
+  {
+   "fieldname": "scheduled_time",
+   "fieldtype": "Datetime",
+   "label": "Scheduled Time"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nPosted\nFailed"
+  },
+  {
+   "fieldname": "response_message",
+   "fieldtype": "Small Text",
+   "label": "Response Message"
+  },
+  {
+   "fieldname": "posted_by",
+   "fieldtype": "Link",
+   "label": "Posted By",
+   "options": "User"
+  },
+  {
+   "fieldname": "post_now",
+   "fieldtype": "Button",
+   "label": "Post Now"
+  },
+  {
+   "fieldname": "facebook_page",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Page ID",
+   "options": "Facebook Page",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "facebook_page.page_name",
+   "fieldname": "page_name",
+   "fieldtype": "Data",
+   "label": "Page Name",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-12-19 12:51:43.129504",
+ "modified_by": "Administrator",
+ "module": "Social Media Posting",
+ "name": "Social Media Post",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
