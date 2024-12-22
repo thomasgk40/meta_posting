@@ -3,6 +3,7 @@
 
 # import frappe
 import frappe
+from frappe.utils import cstr
 import requests
 import json
 from urllib.request import urlopen
@@ -12,6 +13,10 @@ from frappe.model.document import Document
 class SocialMediaPost(Document):
 	pass
 
+@frappe.whitelist()
+def test():
+    print(cstr(frappe.local.site))
+    
 
 @frappe.whitelist()
 def post_to_social_media(docname):
@@ -24,9 +29,9 @@ def post_to_social_media(docname):
     videop=None
     if doc.image:
         #imagep=f"http://192.168.1.244{doc.image}"
-        imagep=f"/home/erpnext/frappe-bench/sites/{frappe.loacal.site}/public{doc.image}"
+        imagep=f"/home/erpnext/frappe-bench/sites/{cstr(frappe.local.site)}/public{doc.image}"
     if doc.video:
-        videop=f"/home/erpnext/frappe-bench/sites/{frappe.loacal.site}/public{doc.video}"
+        videop=f"/home/erpnext/frappe-bench/sites/{cstr(frappe.local.site)}/public{doc.video}"
     try:
         if doc.platform == "Facebook":
             response = post_to_facebook(doc.facebook_page,doc.content, imagep, videop)
