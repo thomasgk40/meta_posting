@@ -24,9 +24,9 @@ def post_to_social_media(docname):
     videop=None
     if doc.image:
         #imagep=f"http://192.168.1.244{doc.image}"
-        imagep=f"/home/erpnext/frappe-bench/sites/site1.local/public{doc.image}"
+        imagep=f"/home/erpnext/frappe-bench/sites/{frappe.loacal.site}/public{doc.image}"
     if doc.video:
-        videop=f"/home/erpnext/frappe-bench/sites/site1.local/public{doc.video}"
+        videop=f"/home/erpnext/frappe-bench/sites/{frappe.loacal.site}/public{doc.video}"
     try:
         if doc.platform == "Facebook":
             response = post_to_facebook(doc.facebook_page,doc.content, imagep, videop)
