@@ -23,7 +23,8 @@ def post_to_social_media(docname):
     imagep=None
     videop=None
     if doc.image:
-        imagep=f"http://192.168.1.244{doc.image}"
+        #imagep=f"http://192.168.1.244{doc.image}"
+        imagep=f"/home/erpnext/frappe-bench/sites/site1.local/public{doc.image}"
     if doc.video:
         videop=f"/home/erpnext/frappe-bench/sites/site1.local/public{doc.video}"
     try:
@@ -61,14 +62,18 @@ def post_to_facebook(facebook_page,content, image=None, video=None):
     
     if image:
         url = f"https://graph.facebook.com/v12.0/{PAGE_ID}/photos"
-        files = {'source': urlopen(image).read()}
-        response = requests.post(url, data=payload, files=files)
+        #files = {'source': urlopen(image).read()}
+        #response = requests.post(url, data=payload, files=files)
+        with open(image, 'rb') as image_file: 
+            files = { 'source': image_file }
+            payload = {"title": content, "access_token": ACCESS_TOKEN,"description":"Printechs"}
+        
+            response = requests.post(url, data=payload, files=files)
     elif video:
         url = f"https://graph.facebook.com/v12.0/{PAGE_ID}/videos"
         with open(video, 'rb') as video_file: 
             files = { 'source': video_file }
-            #files = {'fbuploader_video_file_chunk': video}
-            payload = {"title": content, "access_token": ACCESS_TOKEN,"description":"TEST"}
+            payload = {"title": content, "access_token": ACCESS_TOKEN,"description":"Printechs"}
         
             response = requests.post(url, data=payload, files=files)
     else:
